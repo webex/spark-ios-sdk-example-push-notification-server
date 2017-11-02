@@ -2,4 +2,4 @@ target
 .env
 .idea/
 *.iml
-.jdk-overlay/**/*.p12
+# .jdk-overlay/**/*.p12
