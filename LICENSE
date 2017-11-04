@@ -19,3 +19,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Third-party software licenses
+
+The following are third-party software licenses used within the Software.
+* apns4j license
+  -- https://github.com/teaey/apns4j/blob/1.1.0/LICENSE.txt
+* Sprint Boot license
+  -- https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt
+* HikariCP license
+  -- https://github.com/brettwooldridge/HikariCP/blob/dev/LICENSE
+* FasterXML Jaskson Core license
+  -- https://github.com/FasterXML/jackson-core/blob/master/src/main/resources/META-INF/LICENSE
+* FasterXML Jackson Databind license
+  -- https://github.com/FasterXML/jackson-databind/blob/master/src/main/resources/META-INF/LICENSE
