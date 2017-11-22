@@ -18,19 +18,7 @@ Assuming this sample Webook/Push Notification Server has been deployed on the pu
 
 2. The APNs returns a device token to the application.
 
-3. After the user logs into Cisco Spark，use [Webhook API](https://ciscospark.github.io/spark-ios-sdk/Classes/WebhookClient.html) to create an webhook at Cisco Spark cloud. The target URL of the webhook must be the /webhook REST endpoint of this server. The URL has to be publicly accessible from the Internet.
-	```
-	spark.webhooks.create(name: "Message Webhook", targetUrl: targetUrl, resource: "messages", event: "all") { response in
-		switch response.result {
-		case .success(let webhook):
-			// ...
-		case .failure(let error):
-			// ...
-		}
-	}
-	```
-
-4. Register the device token returned by the APNs and the user Id of current user to the  Webhook/Push Notification Server. The Server stores these information locally in a database.
+3. Register the device token returned by the APNs and the user Id of current user to the  Webhook/Push Notification Server. The Server stores these information locally in a database.
 	```
 	let paramaters: Parameters = [
 		"email": email,
@@ -40,6 +28,18 @@ Assuming this sample Webook/Push Notification Server has been deployed on the pu
 	]
 	Alamofire.request("https://example.com/register", method: .post, parameters: paramaters, encoding: JSONEncoding.default).validate().response { res in
 		// ...
+	}
+	```
+
+4. After the user logs into Cisco Spark，use [Webhook API](https://ciscospark.github.io/spark-ios-sdk/Classes/WebhookClient.html) to create an webhook at Cisco Spark cloud. The target URL of the webhook must be the /webhook REST endpoint of this server. The URL has to be publicly accessible from the Internet.
+	```
+	spark.webhooks.create(name: "Message Webhook", targetUrl: targetUrl, resource: "messages", event: "all") { response in
+		switch response.result {
+		case .success(let webhook):
+			// ...
+		case .failure(let error):
+			// ...
+		}
 	}
 	```
 
