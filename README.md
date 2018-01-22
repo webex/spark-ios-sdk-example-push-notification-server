@@ -33,13 +33,13 @@ Assuming this sample Webook/Push Notification Server has been deployed on the pu
 
 4. After the user logs into Cisco Spark，use [Webhook API](https://ciscospark.github.io/spark-ios-sdk/Classes/WebhookClient.html) to create an webhook at Cisco Spark cloud. The target URL of the webhook must be the /webhook REST endpoint of this server. The URL has to be publicly accessible from the Internet.
 	```
-	spark.webhooks.create(name: "Message Webhook", targetUrl: targetUrl, resource: "messages", event: "all") { response in
-		switch response.result {
-		case .success(let webhook):
-			// ...
-		case .failure(let error):
-			// ...
-		}
+	spark.webhooks.create(name: "Incoming Call Webhook", targetUrl: targetUrl, resource: "callMemberships", event: "created", filter: "state=notified&personId=me") { res in
+		switch res.result {
+	        case .success(let webhook):
+            	// perform positive action
+	        case .failure(let error):
+            	// perform negative action
+	    	}
 	}
 	```
 
