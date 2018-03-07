@@ -126,8 +126,12 @@ public class Main {
 	  NotificationType type = NotificationType.Message;
 	  String resource = notification.getResource();
 	  if ("messages".equals(resource)) {
-	  	to = notification.getCreatedBy();
-	  	type = NotificationType.Message;
+		  String from = notification.getActorId();
+	  	String createdBy = notification.getCreatedBy();
+		  if (createdBy != null && !createdBy.equals(from)) {
+				to = createdBy;
+		  }
+		  type = NotificationType.Message;
 	  }
 	  else if ("callMemberships".equals(resource)) {
 	  	to = notification.getData().getPersonId();
